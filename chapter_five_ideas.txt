@@ -1,0 +1,6 @@
+1. take in nmap port numbers from scans and perform actions on them
+2. pulls logs
+3. automate setting up
+4. create login systems
+5. password sprayer
+
