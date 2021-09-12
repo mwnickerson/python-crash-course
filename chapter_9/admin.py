@@ -23,7 +23,7 @@ class Admin(Users):
     """a simple attempt at an admin system"""
     def __init__(self, first, last, email, username, credit):
         """initialize attributes of parent class"""
-        super().__init__(self)
+        super().__init__(first, last, email, username, credit )
         self.admin_rights = ['can add post', 'can delete post', 'can ban user']
     def show_privileges(self):
         print(f"Your special privs include: {self.admin_rights} ")
