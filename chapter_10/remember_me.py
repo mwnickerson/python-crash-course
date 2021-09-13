@@ -5,7 +5,7 @@ import json
 
 # Load the username if it has been stored previously.
 # Otherwise, prompt for the username and store it
-filename = 'jsons/username.json'
+filename = 'jsons/username2.json'
 try:
     with open(filename) as f:
         username = json.load(f)
