@@ -12,8 +12,5 @@ class Restaurant:
     def open_restaurant(self):
         print(f"Come on in {self.name} is open for business!")
 
-my_restaurant = Restaurant("Theo's Bar and Grill", "American",)
-my_restaurant.open_restaurant()
-my_restaurant.describe_restaraunt()
 
 

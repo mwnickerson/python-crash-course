@@ -1,8 +1,9 @@
-# My Cars
+# My Cars with Class Imports
 # Chapter 9
-# Importing Multiple Classes from a Module
-from car import Car, ElectricCar
+# importing a module into a module
 
+from car import Car
+from electric_car import ElectricCar
 
 my_beetle = Car('volkswagen', 'beetle', 2019)
 print(my_beetle.get_descriptive_name())
