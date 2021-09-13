@@ -1,0 +1,6 @@
+In python you can create lists
+In python you can edit lists
+In python you can create and import modules
+In python you can perform mathematical functions
+In python you can iterate through lists
+In python you can automate things
