@@ -1,7 +1,7 @@
 # Verify User
 # Chapter 10 exercise 13
 # greets a user from json
-# creates a new line on the json for new user
+# creates a new line on the json for new users
 import json
 
 def get_stored_username():
