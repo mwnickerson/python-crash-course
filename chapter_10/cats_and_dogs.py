@@ -8,7 +8,7 @@ def pet_names(filename):
         with open(filename, encoding='utf-8') as f:
             lines = f.readlines()
     except FileNotFoundError:
-        print(f"{filename} cannot be found.")
+        pass
     else:
         for line in lines:
             print(line.rstrip())
