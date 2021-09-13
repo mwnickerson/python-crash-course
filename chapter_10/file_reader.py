@@ -9,9 +9,18 @@
 
 # Version 2
 # reading line by line
-filename = 'text_files/pi_digits.txt'
+#filename = 'text_files/pi_digits.txt'
+#
+#with open(filename) as file_object:
+#    for line in file_object:
+#        print(line.rstrip())
 
+# Version 3
+# making a list of lines from a file
+filename = 'text_files/pi_digits.txt'
 with open(filename) as file_object:
-    for line in file_object:
-        print(line.rstrip())
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.rstrip())
 
