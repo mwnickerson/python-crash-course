@@ -1,16 +1,18 @@
 # City Country
-# Chapter 11: Exercise 1
-# program that prints formatted city country
-from city_functions import get_formatted_city
+# Chapter 11 exercise 1
 
-print("Enter 'q' at any time to quit.")
+from city_functions import get_city_country
+
+print("Enter 'q' at any time to quit")
+
 while True:
-    city = input("\nPlease enter a city: ")
+    city = input("Please enter a city: ")
     if city == 'q':
         break
-    country = input("Enter the country that city resides in:")
+    country = input("Please enter a country: ")
     if country == 'q':
         break
 
-    city_country = get_formatted_city(city, country)
-    print(f"{city_country}")
+    city_country = get_city_country(city, country)
+    print(f"\t{city}, {country}")
+
