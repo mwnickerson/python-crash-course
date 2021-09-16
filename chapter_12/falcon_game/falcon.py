@@ -12,7 +12,7 @@ class Falcon:
         self.screen_rect = tr_game.screen.get_rect()
 
         # load the image
-        self.image = pygame.image.load('rocket_game/images/falcon.bmp')
+        self.image = pygame.image.load('../rocket_game/images/falcon.bmp')
         self.rect = self.image.get_rect()
 
         # Start each ship at the middle left of the screen
