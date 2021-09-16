@@ -29,7 +29,6 @@ class AlienInvasion:
         # Set the background color
         self.bg_color = (230, 230, 230)
 
-
     def run_game(self):
         """Start the main game loop"""
         while True:
@@ -37,7 +36,6 @@ class AlienInvasion:
             self.ship.update()
             self.bullets.update()
             self._update_screen()
-
 
     def _check_events(self):
         """Watch for keyboard and mouse events"""
@@ -59,6 +57,8 @@ class AlienInvasion:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullets()
 
     def _check_keyup_events(self, event):
         """respond to key release"""
@@ -67,14 +67,17 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
-
-
+    def _fire_bullets(self):
+        """create a new bullet and add it to the bullets group"""
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen"""
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
-
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
         pygame.display.flip()
 
 if __name__ == '__main__':
