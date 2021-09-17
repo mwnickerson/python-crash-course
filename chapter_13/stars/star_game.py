@@ -5,6 +5,7 @@ import pygame
 
 from settings import Settings
 from star import Star
+from random import randint
 
 class StarsGame:
     """main class to manage game assets and behavior"""
@@ -61,6 +62,10 @@ class StarsGame:
         star.x = star_width + 2 * star.rect.height * star_number
         star.rect.x = star.x
         star.rect.y = star_height = 2 * star.rect.height * row_number
+        # introduce some randomness to the positons
+        star.rect.x += randint(-50, 50)
+        star.rect.y += randint(-50, 50)
+        # place the star
         self.stars.add(star)
 
     def _update_screen(self):
