@@ -120,6 +120,9 @@ class TrenchRun:
     #    tie_fighter.rect.y = tie_fighter.y
     #    tie_fighter.rect.x = tie_fighter_height + 2 * tie_fighter.rect.height * column_number
     #    self.tie_fighters.add(tie_fighter)
+
+    # creates random tie attacker mode
+    # comment this section and uncomment the other section for fleet mode
     def _create_tie_fighter(self):
         """create a tie fighter if conditions are right"""
         if random() < self.settings.tie_fighter_frequency:
