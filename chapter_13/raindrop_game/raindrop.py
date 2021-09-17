@@ -21,6 +21,13 @@ class Raindrop(Sprite):
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
 
+    def check_disappeared(self):
+        """check if the drop dissapeared off the screen"""
+        if self.rect.top > self.screen.get_rect().bottom:
+            return True
+        else:
+            return False
+
     def update(self):
         self.y += self.settings.raindrop_drop_speed
         self.rect.y = self.y
