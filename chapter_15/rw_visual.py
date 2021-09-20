@@ -7,7 +7,7 @@ from random_walk import RandomWalk
 
 # keep making random walks as long as the program is active
 while True:
-    rw = RandomWalk()
+    rw = RandomWalk(50_000)
     rw.fill_walk()
     # plot the points of the random walk
 
@@ -15,7 +15,7 @@ while True:
     fig, ax = plt.subplots()
     point_numbers = range(rw.num_points)
     ax.scatter(rw.x_values, rw.y_values, c=point_numbers,
-               cmap=plt.cm.Blues, edgecolors='none', s=15)
+               cmap=plt.cm.Blues, edgecolors='none', s=1)
 
     # emphasize the first and last position
     ax.scatter(0, 0, c='green', edgecolors='none', s=100)
