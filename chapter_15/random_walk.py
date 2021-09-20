@@ -8,7 +8,7 @@ class RandomWalk:
 
     def __init__(self, num_points=5000):
         """initialize the attributes of a walk"""
-        se;f.num_points
+        self.num_points = num_points
 
         # all walks start at (0,0)
         self.x_values = [0]
