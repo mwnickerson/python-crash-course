@@ -4,9 +4,10 @@
 
 import matplotlib.pyplot as plt
 
-squares = [1, 2, 4, 16, 25]
+input_values = [1, 2, 3, 4, 5]
+squares = [1, 4, 9, 16, 25]
 fig, ax = plt.subplots()
-ax.plot(squares)
+ax.plot(input_values, squares, linewidth=3)
 
 # set chart title and label axes
 ax.set_title("Square Numbers", fontsize=24)
