@@ -10,4 +10,4 @@ class Die:
 
     def roll(self):
         """return a random value b/n 1 and # of sides"""
-        return randint(1,self.num_sides)
+        return randint(1, self.num_sides)
