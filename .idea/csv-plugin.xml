@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\chapter_16\data\san_fran_2018_simple.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\chapter_16\data\sitka_weather_07-2018_simple.csv">
           <value>
             <Attribute>
