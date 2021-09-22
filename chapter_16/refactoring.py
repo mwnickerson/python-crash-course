@@ -1,4 +1,5 @@
-# building a world map to plot earthquakes on
+# chapter 16 exercise 6
+# refactoring to shorten the code
 
 import json
 
@@ -15,14 +16,10 @@ all_eq_dicts = all_eq_data['features']
 # extract magnitude and location of earthquakes
 mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
-    mag = eq_dict['properties']['mag']
-    lon = eq_dict['geometry']['coordinates'][0]
-    lat = eq_dict['geometry']['coordinates'][1]
-    title = eq_dict['properties']['title']
-    mags.append(mag)
-    lons.append(lon)
-    lats.append(lat)
-    hover_texts.append(title)
+    mags.append(eq_dict['properties']['mag'])
+    lons.append(eq_dict['geometry']['coordinates'][0])
+    lats.append(eq_dict['geometry']['coordinates'][1])
+    hover_texts.append(eq_dict['properties']['title'])
 
 # map the earthquakes
 data = [{
@@ -42,4 +39,3 @@ my_layout = Layout(title='Global Earthquakes')
 
 fig = {'data': data, 'layout': my_layout}
 offline.plot(fig, filename='global_earthquakes.html')
-
