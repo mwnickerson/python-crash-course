@@ -13,9 +13,7 @@ def index(request):
 def topics(request):
     """show all topics"""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
-    # make sure topic belongs to the current user
-    if topic.owner != request.user:
-        raise Http404
+
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
@@ -23,6 +21,10 @@ def topics(request):
 def topic(request, topic_id):
     """show a single topic and its entries"""
     topic = Topic.objects.get(id=topic_id)
+    # make sure topic belongs to the current user
+    if topic.owner != request.user:
+        raise Http404
+    entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
@@ -36,7 +38,9 @@ def new_topic(request):
         # post data submitted process data
         form = TopicForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user
+            new_topic.save()
             return redirect('learning_logs:topics')
 
     # display a blank form or invalid form
