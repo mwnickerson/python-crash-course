@@ -7,5 +7,7 @@ from . import views
 app_name = 'pizzas'
 urlpatterns = [
     # home page
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    # page that shows all pizzas
+    path('pizzas/', views.pizzas, name='pizzas'),
 ]
