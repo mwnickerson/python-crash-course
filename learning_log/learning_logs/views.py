@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -12,6 +13,9 @@ def index(request):
 def topics(request):
     """show all topics"""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+    # make sure topic belongs to the current user
+    if topic.owner != request.user:
+        raise Http404
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
@@ -19,7 +23,6 @@ def topics(request):
 def topic(request, topic_id):
     """show a single topic and its entries"""
     topic = Topic.objects.get(id=topic_id)
-    entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
@@ -66,6 +69,8 @@ def edit_entry(request, entry_id):
     """edit an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # initial request; pre-fill form with current entry
